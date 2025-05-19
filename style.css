@@ -51,22 +51,28 @@ html{
 /* ---##-- REUSABLE CSS --##--- */
 
 /* ----- GLOBAL BUTTON DESIGN ----- */
-.btn{
+.btn {
     font-weight: 500;
     padding: 12px 20px;
     background: #efefef;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: .4s;
+    transition: 0.4s;
+    text-decoration: none;      /* Remove underline */
+    display: inline-block;      /* Make <a> behave like a button */
+    color: inherit;             /* Inherit text color */
 }
-.btn>i{
+
+.btn > i {
     margin-left: 10px;
 }
-.btn:hover{
+
+.btn:hover {
     background: var(--second-color);
     color: var(--color-white);
 }
+
 
 /* ----- GLOBAL ICONS DESIGN ----- */
 i{
@@ -177,11 +183,11 @@ nav{
     background: var(--third-color);
     color: var(--color-white);
     padding: 3px 8px;
-    font-size: 12px;
+    font-size: 24px;
     border-radius: 5px;
 }
 .featured-name{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
     color: var(--text-color-second);
     margin-block: 20px;
@@ -359,56 +365,216 @@ h3{
 }
 
 /* ----- PROJECTS BOX ----- */
-.project-container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.project-box{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 30%;
-    height: 250px;
-    background: var(--color-white);
-    border-radius: 20px;
-    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    overflow: hidden;
-}
-.project-box>i{
-    font-size: 50px;
-    color: #00B5E7;
-    margin-bottom: 25px;
-}
-.project-box label{
-    font-size: 15px;
-    color: #777;
-}
-.project-box::after, .contact-info::after{
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    background: var(--second-color);
-    width: 100%;
-    height: 100%;
-    transition: .4s;
-    z-index: 1;
-}
-.project-box:hover.project-box::after,
-.contact-info:hover.contact-info::after{
-    bottom: 0;
-}
-.project-box:hover.project-box i,
-.project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
-    color: var(--color-white);
-    z-index: 2;
+/* Projects Section */
+#projects {
+  padding: 80px 0;
+  background-color: #f9f9ff;
 }
 
+.top-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.top-header h1 {
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.top-header h1::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(to right, #6c63ff, #4a42e8);
+  bottom: -10px;
+  left: 20%;
+}
+
+.section-subtitle {
+  color: #777;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Projects Section */
+#projects {
+  padding: 100px 0;
+  background-color: #f8f9fa;
+}
+
+.top-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.top-header h1 {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.project-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.project-box {
+  display: flex;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-image {
+  flex: 1;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.project-box:hover .project-image img {
+  transform: scale(1.03);
+}
+
+.project-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-layout {
+  flex-direction: row;
+}
+
+.right-layout {
+  flex-direction: row-reverse;
+}
+
+.project-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #6c63ff 0%, #4a42e8 100%);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.project-content h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.project-content p {
+  color: #7f8c8d;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.project-tech span {
+  background: #f0f2f5;
+  color: #2c3e50;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-link {
+  color: #6c63ff;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: #4a42e8;
+  gap: 12px;
+}
+
+/* Font Awesome Icons */
+.fas, .fab {
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .project-box {
+    flex-direction: column !important;
+  }
+  
+  .project-image {
+    min-height: 250px;
+  }
+  
+  .project-content {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .project-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .project-content p {
+    font-size: 1rem;
+  }
+}
 /* ----- CONTACT BOX ----- */
 .contact-info{
     position: relative;
